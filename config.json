@@ -1,6 +1,6 @@
 {
   "database": {
-    "engine": "mariadb",
+    "engine": "mysql",
     "host": "db",
     "name": "npm",
     "user": "npm",
