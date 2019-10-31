@@ -2,9 +2,9 @@
   "database": {
     "engine": "mysql",
     "host": "db",
-    "name": "npm",
-    "user": "npm",
-    "password": "npm",
+    "name": "$MYSQL_DATABASE",
+    "user": "MYSQL_USER",
+    "password": "MYSQL_PASSWORD",
     "port": 3306
   }
 }
