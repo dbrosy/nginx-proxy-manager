@@ -1,7 +1,7 @@
 version: "3"
 services:
   app:
-    image: jc21/nginx-proxy-manager:latest
+    image: jc21/nginx-proxy-manager:2.0.13
     container_name: nginx-proxy
     restart: always
     ports:
@@ -20,7 +20,7 @@ services:
     # if you want pretty colors in your docker logs:
     - FORCE_COLOR=1
   db:
-    image: mariadb:latest
+    image: mariadb:10.3
     container_name: nginx-db
     restart: always
     ports:
