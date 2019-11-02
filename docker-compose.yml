@@ -34,18 +34,18 @@ services:
       - proxy
     volumes:
       - ./data/mysql:/var/lib/mysql
-  portainer:
-    image: portainer/portainer
-    container_name: portainer
+#  portainer:
+#    image: portainer/portainer
+#    container_name: portainer
 #    command: -H unix:///var/run/docker.sock
-    restart: always
-    environment:
-      - VIRTUAL_HOST=${VIRTUAL_HOST}
-    networks:
-      - proxy
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
+#    restart: always
+#    environment:
+#      - VIRTUAL_HOST=${VIRTUAL_HOST}
+#    networks:
+#      - proxy
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock
+#      - portainer_data:/data
 
 networks:
   proxy:
