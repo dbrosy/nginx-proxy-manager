@@ -12,8 +12,8 @@ services:
       - proxy
     volumes:
       - ./config.json:/app/config/production.json
-      - ./data:/data
-      - ./letsencrypt:/etc/letsencrypt
+      - nginxproxy_data:/data
+      - letsencrypt_data:/etc/letsencrypt
     depends_on:
       - db
     environment:
@@ -52,3 +52,5 @@ networks:
 
 volumes:
   portainer_data:
+  letsencrypt_data:
+  nginxproxy_data:
