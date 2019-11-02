@@ -37,7 +37,7 @@ services:
   portainer:
     image: portainer/portainer
     container_name: portainer
-    command: -H unix:///var/run/docker.sock
+#    command: -H unix:///var/run/docker.sock
     restart: always
     environment:
       - VIRTUAL_HOST=${VIRTUAL_HOST}
