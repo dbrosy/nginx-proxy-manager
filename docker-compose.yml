@@ -9,13 +9,14 @@ services:
       - "443:443"
       - "81:81"
     networks:
-      - proxy
+      - internal
+      - external
     volumes:
       - ./config.json:/app/config/production.json
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
     depends_on:
-      - db
+      - nginx-db
     environment:
     # if you want pretty colors in your docker logs:
     - FORCE_COLOR=1
@@ -31,25 +32,28 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     networks:
-      - proxy
+      - internal
     volumes:
       - ./data/mysql:/var/lib/mysql
-#  portainer:
-#    image: portainer/portainer
-#    container_name: portainer
-#    command: -H unix:///var/run/docker.sock
-#    restart: always
-#    environment:
-#      - VIRTUAL_HOST=${VIRTUAL_HOST}
-#    networks:
-#      - proxy
-#    volumes:
-#      - /var/run/docker.sock:/var/run/docker.sock
-#      - portainer_data:/data
+  portainer:
+    image: portainer/portainer
+    container_name: portainer
+    command: -H unix:///var/run/docker.sock
+    restart: always
+    environment:
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
+    networks:
+      - internal
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
 
 networks:
-  proxy:
+  internal:
+    external: false
+  external:
+    external: true
 
-#volumes:
-#  portainer_data:
+volumes:
+  portainer_data:
 
