@@ -11,7 +11,6 @@ services:
     networks:
       - internal
       - external
-      #- proxy
     volumes:
       - ./config.json:/app/config/production.json
       - ./data:/data
@@ -34,7 +33,6 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     networks:
       - internal
-      #- proxy
     volumes:
       - ./data/mysql:/var/lib/mysql
   portainer:
@@ -46,13 +44,11 @@ services:
       - VIRTUAL_HOST=${VIRTUAL_HOST}
     networks:
       - internal
-      #- proxy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
 
 networks:
-  #proxy:
   internal:
     external: false
   external:
