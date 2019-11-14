@@ -1,7 +1,7 @@
 {
   "database": {
     "engine": "mysql",
-    "host": "db",
+    "host": "nginx-db",
     "name": "npm",
     "user": "npm",
     "password": "npm",
